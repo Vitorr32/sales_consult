@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "app/styles/theme.scss";
+
+//It's always good to set some global styles that the developer is more confortable with
+* {
+    /*  Make all element bounding box take the padding into the contet-box size,
+        so that the element don't bloat it's own size when the padding is set*/
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

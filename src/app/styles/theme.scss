@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+@import "luna-theme.scss";
+@import "sol-theme.scss";
+
+@include mat-core();
+
+$sol-primary: mat-palette($mat-indigo);
+$sol-accent: mat-palette($mat-pink, A200, A100, A400);
+$sol-warn: mat-palette($mat-red);
+
+$sol-theme: mat-light-theme(
+    (
+        color: (
+            primary: $sol-primary,
+            accent: $sol-accent,
+            warn: $sol-warn,
+        ),
+    )
+);
+
+$luna-primary: mat-palette($mat-blue-grey);
+$luna-accent: mat-palette($mat-amber, A200, A100, A400);
+$luna-warn: mat-palette($mat-deep-orange);
+$luna-theme: mat-dark-theme(
+    (
+        color: (
+            primary: $luna-primary,
+            accent: $luna-accent,
+            warn: $luna-warn,
+        ),
+    )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+//Include in the Angular Material components
+@include angular-material-theme($sol-theme);
+//Include in the application components;
+@include sol-theme($sol-theme);
+
+//Case the element has this class, the theme used will be different
+.luna {
+    @include angular-material-color($luna-theme);
+    @include luna-theme($luna-theme);
+}
