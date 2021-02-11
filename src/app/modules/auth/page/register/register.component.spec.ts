@@ -7,20 +7,29 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
-import { LoginComponent } from './login.component';
+import { RegisterComponent } from './register.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent]
+      declarations: [ RegisterComponent ],
+      imports: [
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatRadioModule,
+        MatSelectModule,
+      ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

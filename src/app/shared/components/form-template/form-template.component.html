@@ -1,0 +1,55 @@
+<mat-card *ngIf="searchFormGroup">
+
+    <mat-card-header *ngIf="formTemplateData.title">
+        <mat-card-title>{{ formTemplateData.title }}</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="searchFormGroup">
+        <mat-card-content>
+            <ng-container *ngFor="let inputGroup of groupedInputs">
+                <ng-container *ngFor="let inputField of inputGroup.inputs">
+
+                    <ng-container [ngSwitch]="inputField.type">
+
+                        <mat-form-field *ngSwitchCase="0">
+                            <input matInput placeholder="Username">
+                        </mat-form-field>
+
+                    </ng-container>
+
+                </ng-container>
+            </ng-container>
+        </mat-card-content>
+
+        <button mat-stroked-button color="primary" class="btn-block">Log in</button>
+
+
+
+
+
+        <!-- <div class="submit-wrapper">
+            <div *ngFor="let inputGroup of groupedInputs" class="input-group">
+                <ng-container *ngFor="let inputField of inputGroup.inputs">
+                    <app-input-text *ngIf="isTextInput(inputField.type)" [inputData]="inputField"
+                        [formGroup]="searchFormGroup">
+                    </app-input-text>
+                    <app-input-dropdown *ngIf="isDropdownInput(inputField.type)" [inputData]="inputField"
+                        [formGroup]="searchFormGroup"></app-input-dropdown>
+                    <app-input-datepicker *ngIf="isDatepickerInput(inputField.type)" [inputData]="inputField"
+                        [formGroup]="searchFormGroup">
+                    </app-input-datepicker>
+                </ng-container>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="btn btn-primary" style="min-width: 100px;" (click)="onSearch()">
+                    <clr-icon shape="search" size="12"></clr-icon> Search
+                </button>
+                <button class="btn btn-primary" type="button" (click)="onActionTriggered(action)"
+                    *ngFor="let action of formData.extraActions">
+                    <clr-icon [attr.shape]="action.icon"></clr-icon> {{ action.label }}
+                </button>
+            </div>
+        </div> -->
+    </form>
+</mat-card>

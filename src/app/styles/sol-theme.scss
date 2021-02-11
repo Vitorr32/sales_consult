@@ -9,10 +9,8 @@
     $accent: map-get($config, accent);
 
     // Define any styles affected by the theme.
-    .sol {
-        // Use mat-color to extract individual colors from a palette.
+    body {
         background-color: mat-color($primary);
-        // border-color: mat-color($accent, A400);
     }
 }
 
