@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -14,11 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     imports: [
         CommonModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
+        InputTextModule,
+        InputMaskModule,
+        DropdownModule,
         ReactiveFormsModule,
     ],
     exports: [

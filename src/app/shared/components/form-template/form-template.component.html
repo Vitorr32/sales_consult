@@ -1,33 +1,31 @@
-<mat-card *ngIf="searchFormGroup">
+<form [formGroup]="searchFormGroup" *ngIf="searchFormGroup">
 
-    <mat-card-header *ngIf="formTemplateData.title">
-        <mat-card-title>{{ formTemplateData.title }}</mat-card-title>
-    </mat-card-header>
+    <header *ngIf="formTemplateData.title">
+        <span>{{ formTemplateData.title }}</span>
+    </header>
 
-    <form [formGroup]="searchFormGroup">
-        <mat-card-content>
-            <ng-container *ngFor="let inputGroup of groupedInputs">
-                <ng-container *ngFor="let inputField of inputGroup.inputs">
+    <ng-container *ngFor="let inputGroup of groupedInputs">
+        <ng-container *ngFor="let inputField of inputGroup.inputs">
 
-                    <ng-container [ngSwitch]="inputField.type">
-
-                        <mat-form-field *ngSwitchCase="0">
-                            <input matInput placeholder="Username">
-                        </mat-form-field>
-
-                    </ng-container>
-
-                </ng-container>
+            <ng-container [ngSwitch]="inputField.type">
+                <input [formControlName]="inputField.name" *ngSwitchCase="0" type="text" pInputText />
+                <textarea [formControlName]="inputField.name" *ngSwitchCase="1" pInputTextarea></textarea>
+                <input *ngSwitchCase="2" type="text" pInputText />
+                <p-dropdown *ngSwitchCase="3" [options]="inputField.dropdownConfig.options"
+                    [formControlName]="inputField.name" [optionLabel]="inputField.optionLabel"
+                    [optionValue]="inputField.optionValue">
+                </p-dropdown>
             </ng-container>
-        </mat-card-content>
+        </ng-container>
+    </ng-container>
 
-        <button mat-stroked-button color="primary" class="btn-block">Log in</button>
+    <button>Log in</button>
+
+</form>
 
 
 
-
-
-        <!-- <div class="submit-wrapper">
+<!-- <div class="submit-wrapper">
             <div *ngFor="let inputGroup of groupedInputs" class="input-group">
                 <ng-container *ngFor="let inputField of inputGroup.inputs">
                     <app-input-text *ngIf="isTextInput(inputField.type)" [inputData]="inputField"
@@ -51,5 +49,3 @@
                 </button>
             </div>
         </div> -->
-    </form>
-</mat-card>

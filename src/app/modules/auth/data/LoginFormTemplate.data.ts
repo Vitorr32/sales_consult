@@ -9,6 +9,20 @@ export const LoginFormTemplate: FormTemplate = {
             name: 'username',
             type: InputType.TEXT_INPUT,
             validators: [Validators.required]
+        },
+        {
+            label: 'Giria',
+            name: 'giria',
+            type: InputType.DROPDOWN_INPUT,
+            validators: [Validators.required],
+            dropdownConfig: {
+                options: [
+                    { name: 'Yolo', giria: 'Swag' },
+                    { name: 'Swag', giria: 'Yolo' }
+                ],
+                optionLabel: 'name',
+                optionValue: 'giria'
+            }
         }
     ],
 }
